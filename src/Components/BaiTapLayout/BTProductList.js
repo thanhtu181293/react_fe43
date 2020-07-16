@@ -7,7 +7,7 @@ export default class BTProductList extends Component {
     render() {
         return (
             <div>
-                <BTProductListPhone />
+                <BTProductListPhone  />
                 <BTProductListPC />
             </div>
         )

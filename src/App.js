@@ -9,6 +9,8 @@ import EventBinding from './EventBinding/EventBinding';
 import RenderWithState from './RenderWithState/RenderWithState';
 import BaiTapChonXe from './BaiTapChonXe/BaiTapChonXe';
 import RenderWithMap from './RenderWithMap/RenderWithMap';
+import ExampleGlasses from './RenderWithState/ExampleGlasses/ExampleGlasses';
+import DemoProps from './Props/DemoProps';
 
 function App() {
   return (
@@ -30,13 +32,15 @@ function App() {
       {/* hello cybersoft
       <Header></Header>
       <Header/> */}
-      {/* <BaiTapLayout/> */}
+      <BaiTapLayout/>
       {/* <BaiTapLayout2 /> */}
       {/* <DataBinding /> */}
       {/* <EventBinding /> */}
       {/* <RenderWithState /> */}
       {/* <BaiTapChonXe /> */}
-      <RenderWithMap />
+      {/* <RenderWithMap /> */}
+      {/* <ExampleGlasses /> */}
+      {/* <DemoProps /> */}
     </div>
   );
 }
