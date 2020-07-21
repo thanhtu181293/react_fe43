@@ -11,6 +11,8 @@ import BaiTapChonXe from './BaiTapChonXe/BaiTapChonXe';
 import RenderWithMap from './RenderWithMap/RenderWithMap';
 import ExampleGlasses from './RenderWithState/ExampleGlasses/ExampleGlasses';
 import DemoProps from './Props/DemoProps';
+import BtVeNha from './BtVeNha/BtVeNha';
+import ExampleCard from './ExampleCard/ExampleCard';
 
 function App() {
   return (
@@ -32,7 +34,7 @@ function App() {
       {/* hello cybersoft
       <Header></Header>
       <Header/> */}
-      <BaiTapLayout/>
+      {/* <BaiTapLayout/> */}
       {/* <BaiTapLayout2 /> */}
       {/* <DataBinding /> */}
       {/* <EventBinding /> */}
@@ -41,6 +43,7 @@ function App() {
       {/* <RenderWithMap /> */}
       {/* <ExampleGlasses /> */}
       {/* <DemoProps /> */}
+      <ExampleCard />
     </div>
   );
 }

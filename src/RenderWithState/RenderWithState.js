@@ -3,6 +3,10 @@ import React, { Component } from 'react'
 export default class RenderWithState extends Component {
 
     // this.state: thuộc tính chứa những giá trị thay đổi khi người dùng thao tác trên gian diện
+    
+    // Điều kiện lưu trữ state:
+    // 1. chứa giao diện được binding từ state (trực tiếp hoặc gián tiến)
+    // 2. chứa nút xử lí làm thay đổi state đó (trực tiếp hoặc gián tiếp)
     state = {
         isLogin : false,
     }
