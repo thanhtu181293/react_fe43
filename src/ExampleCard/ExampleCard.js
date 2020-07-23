@@ -10,6 +10,27 @@ export default class ExampleCard extends Component {
         cardList : [],
     }
 
+    // xử lý tăng giảm số lượng
+    tangGiamSoLuong = (maSP, tangGiam) => { // tang la true, giam la false
+        // tim ra sp can tang giam so luong
+        let cardListUpdate = [...this.state.cardList];
+
+        let index = cardListUpdate.findIndex((item) => item.maSP === maSP)
+
+        if (index >= 0) {
+            if (tangGiam) {
+                cardListUpdate[index].soLuong += 1;
+            } else {
+                if (cardListUpdate[index].soLuong === 1) {
+                    cardListUpdate.splice(index, 1);
+                } else {
+                    cardListUpdate[index].soLuong -= 1;
+                }
+            }
+        }
+        this.setState({cardList: cardListUpdate})
+    }
+
     handleSelectPro = (pro) => {
         this.setState({proSelected: pro})
     }
@@ -22,10 +43,8 @@ export default class ExampleCard extends Component {
 
         if (index >= 0){
             cardListUpdate[index].soLuong += 1;
-            cardListUpdate[index].tongTien = cardListUpdate[index].giaBan * cardListUpdate[index].soLuong;
         } else {
             card.soLuong = 1;
-            card.tongTien = card.giaBan;
             cardListUpdate = [...cardListUpdate, card];
         }
 
@@ -35,6 +54,7 @@ export default class ExampleCard extends Component {
 
     handleDelPro = (card) => {
         // tạo cardList mới
+        debugger;
         let cardListUpdate = [...this.state.cardList];
 
         let index = cardListUpdate.findIndex((item) => item.maSP === card.maSP);
@@ -48,7 +68,7 @@ export default class ExampleCard extends Component {
     render() {
         return (
             <div className="container">
-                <ProductCard cardList={this.state.cardList} handleDelPro={this.handleDelPro} />
+                <ProductCard tangGiamSoLuong={this.tangGiamSoLuong} cardList={this.state.cardList} handleDelPro={this.handleDelPro} />
                 <ProductList proList={this.state.proList} handleSelectPro={this.handleSelectPro} handleByuPro={this.handleByuPro} />
                 {this.state.proSelected ? (
                 <div className="row">

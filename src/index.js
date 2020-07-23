@@ -4,10 +4,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// kêt nối redux với react (setup)
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './redux/reducers/rootReducer'
+const reduxStore = createStore(rootReducer);
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={reduxStore}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

@@ -17,14 +17,22 @@ export default class ProductCard extends Component {
                     <td>{item.tenSP}</td>
                     <td>{item.giaBan}$</td>
                     <td>
-                    <button className="btn btn-info">-</button><span className="mx-2">{item.soLuong}</span><button className="btn btn-info">+</button>
+                    <button className="btn btn-info" onClick={() => {this.props.tangGiamSoLuong(item.maSP, false)}}>-</button>
+                    <span className="mx-2">{item.soLuong}</span>
+                    <button className="btn btn-info" onClick={() => {this.props.tangGiamSoLuong(item.maSP, true)}}>+</button>
                     </td>
-                    <td>{item.tongTien}$</td>
+                    <td>{(item.giaBan * item.soLuong).toLocaleString()}$</td>
                     <td><button className="btn btn-danger" onClick={()=>{
                         this.props.handleDelPro(item);
                     }}>xóa</button></td>
                 </tr>)
         })
+    }
+
+    tinhTongTien = () => {
+        return this.props.cardList.reduce((tongTien, sp, index)=>{
+            return tongTien += sp.soLuong * sp.giaBan;
+        }, 0).toLocaleString();
     }
 
     render() {
@@ -53,7 +61,7 @@ export default class ProductCard extends Component {
                         <td />
                         <td />
                         <td />
-                        <td>32300000</td>
+                        <td>{this.tinhTongTien() !== '0' ? this.tinhTongTien()+'$' : null}</td>
                         <td />
                     </tr>
                     </tfoot>
