@@ -14,6 +14,7 @@ import DemoProps from './Props/DemoProps';
 import BtVeNha from './BtVeNha/BtVeNha';
 import ExampleCard from './ExampleCard/ExampleCard';
 import BaiTapGioHang from './BaiTapRedux/BaiTapGioHang/BaiTapGioHang';
+import GameBauCua from './redux/GameBauCua'
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
       {/* <ExampleGlasses /> */}
       {/* <DemoProps /> */}
       {/* <ExampleCard /> */}
-      <BaiTapGioHang />
+      {/* <BaiTapGioHang /> */}
+      <GameBauCua />
     </div>
   );
 }
