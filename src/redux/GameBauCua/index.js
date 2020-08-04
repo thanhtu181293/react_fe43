@@ -31,6 +31,8 @@ class GameBauCua extends Component {
     }
 }
 
+
+
 const mapStateToProps = (state) => {
     return {
         tongTien : state.GameBauCuaReducer.tongTien,
@@ -45,9 +47,6 @@ const mapDispatchToProps = (dispatch) => {
             let xucXac3 = Math.floor(Math.random() * 5);
             const action = {
                 type : 'CHOI_GAME',
-                xucXac1,
-                xucXac2,
-                xucXac3,
             }
             dispatch(action);
         }

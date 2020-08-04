@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
+import {datCuoc} from '../../actions/GameBauCuaAction'
 
 class DanhSachDatCuoc extends Component {
     renderDanhSach = () => {
@@ -45,13 +46,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         datCuoc : (ma, cuoc) => {
-            const action = {
-                type : 'DAT_CUOC',
-                ma,
-                cuoc,
-            };
-
-            dispatch(action);
+            dispatch(datCuoc(ma, cuoc));
         }
     }
 }

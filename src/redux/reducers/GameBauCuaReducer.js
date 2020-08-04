@@ -1,3 +1,6 @@
+import {getRandomInit} from '../../utils/randomInit'
+import * as actionConstants from '../constants/GameBauCuaConst'
+
 const initialState = {
     tongTien: 100,
     danhSachCuoc : [
@@ -17,7 +20,7 @@ const initialState = {
 
 const GameBauCuaReducer = (state = initialState, action) => {
     switch(action.type){
-        case 'DAT_CUOC': {
+        case actionConstants.DAT_CUOC: {
             let { tongTien } = state;
             let danhSachCuoc = [ ...state.danhSachCuoc ];
             let index = danhSachCuoc.findIndex((item) => item.ma === action.ma);
@@ -37,17 +40,38 @@ const GameBauCuaReducer = (state = initialState, action) => {
             // state.danhSachCuoc = danhSachCuoc;
             // state.tongTien = tongTien;
             // return { ...state }
+            
+
             return { ...state, danhSachCuoc, tongTien }
         }
         case 'CHOI_GAME': {
-            // let xucXac = [ ...state.xucXac];
-            // let xucXac = state.danhSachCuoc.map((item, index) => {
-            //     if (action.xucXac1 === index) {
-            //         return {...state.danhSachCuoc[index]}
-            //     }
-            // })
-            console.log('choi game');
-            break;
+            let { tongTien } = state
+            let danhSachCuoc = [ ...state.danhSachCuoc ];
+
+            let xucXac = [
+                danhSachCuoc[getRandomInit(6)],
+                danhSachCuoc[getRandomInit(6)],
+                danhSachCuoc[getRandomInit(6)],
+            ];
+
+            for(let ele of danhSachCuoc){
+                let traTien = xucXac.find((item) => ele.ma === item.ma);
+                if (traTien) {
+                    tongTien += ele.giaCuoc;
+                } 
+            }
+
+            tongTien += xucXac.reduce((tienCuoc, item, index) => {
+                return tienCuoc += item.giaCuoc;
+            },0)
+
+            
+            danhSachCuoc = danhSachCuoc.map(item => ({
+                ...item,
+                giaCuoc: 0
+            }))
+
+            return { ...state, xucXac, danhSachCuoc, tongTien }
         }
         default : break;
     }

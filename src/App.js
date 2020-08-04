@@ -15,6 +15,9 @@ import BtVeNha from './BtVeNha/BtVeNha';
 import ExampleCard from './ExampleCard/ExampleCard';
 import BaiTapGioHang from './BaiTapRedux/BaiTapGioHang/BaiTapGioHang';
 import GameBauCua from './redux/GameBauCua'
+import GameXiNgau from './redux/GameXiNgau';
+import Form_valication from './Form_Valication/Form_valication';
+import QLSV from './Form_Valication/QLSV.js';
 
 function App() {
   return (
@@ -47,7 +50,10 @@ function App() {
       {/* <DemoProps /> */}
       {/* <ExampleCard /> */}
       {/* <BaiTapGioHang /> */}
-      <GameBauCua />
+      {/* <GameBauCua /> */}
+      {/* <GameXiNgau /> */}
+      {/* <Form_valication /> */}
+      <QLSV />
     </div>
   );
 }
